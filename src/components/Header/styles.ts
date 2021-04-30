@@ -7,10 +7,10 @@ export const Container = styled.div`
   padding: 10px;
   background: #3744BD;
   align-items: center;
+`;
 
-  h1{
-    color: #fff;
-    font-size:16px;
-    font-weight: bold;
-  }
+export const Title = styled.h1`
+  color: #fff;
+  font-size:16px;
+  font-weight: bold;
 `;

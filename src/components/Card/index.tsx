@@ -5,7 +5,23 @@ import { BiDotsHorizontal } from 'react-icons/bi';
 import { FaPen, FaTrash, FaArrowAltCircleRight, FaArrowAltCircleLeft, FaTimes  } from 'react-icons/fa';
 
 import { RowCenterBetween, RowCenterRight, ContentModal, BodyModal } from '../../styles/global';
-import { Container } from './styles';
+import {
+  Container,
+  Title,
+  ButtonModal1,
+  ButtonModal2,
+  ButtonCloseModal,
+  Line,
+  Label,
+  Input,
+  TextCountAttachment,
+  TextDescription,
+  TextLegend,
+  ContentBtnOptions,
+  DropdownOptions,
+  ButtonDropdownOptions,
+
+} from './styles';
 
 
 interface CardProps {
@@ -32,8 +48,6 @@ const Card: React.FC<CardProps> = ({
   taskCurrent, 
   updateListTask,
 }: CardProps) => {
-  const [newListTask, setNewListTask ] = useState();
-  const [descricao, setDescricao ] = useState();
   const [modalEditTask, setModalEditTask ] = useState(false);
   const [dataTask, setDataTask ] = useState<EditProps>({
     title: '',
@@ -42,14 +56,11 @@ const Card: React.FC<CardProps> = ({
 
   const pegaTaskStorage = (e: string) : Array<CardProps> => {
     const currentUser = localStorage.getItem(e);
-    return JSON.parse(currentUser || '{}')
+    return JSON.parse(currentUser || '[]')
   }
-
-  
 
   const editTask = () => {
     const listTask = pegaTaskStorage(taskCurrent)
-    let guardaTask = listTask[index]
     listTask[index] = {
       index: index,
       title: dataTask.title,
@@ -65,18 +76,17 @@ const Card: React.FC<CardProps> = ({
 
   const deleteTask = () => {
     const listTask = pegaTaskStorage(taskCurrent)
-    let taskDeleted = listTask.splice(index, 1)
+    const taskDeleted = listTask.splice(index, 1)
     localStorage.setItem(taskCurrent, JSON.stringify(listTask))
     updateListTask!()
   }
 
   const nextStage = () => {
     const listTask = pegaTaskStorage(taskCurrent)
-    let taskDeleted = listTask.splice(index, 1)
+    const taskDeleted = listTask.splice(index, 1)
     localStorage.setItem(taskCurrent, JSON.stringify(listTask))
     if(taskCurrent==='listTaskTodo'){ 
       const listTask = pegaTaskStorage('listTaskInprogress')
-      console.log(taskDeleted)
       listTask.push(taskDeleted[0])
       localStorage.setItem('listTaskInprogress', JSON.stringify(listTask))
     }
@@ -90,7 +100,7 @@ const Card: React.FC<CardProps> = ({
 
   const previousStage = () => {
     const listTask = pegaTaskStorage(taskCurrent)
-    let taskDeleted = listTask.splice(index, 1)
+    const taskDeleted = listTask.splice(index, 1)
     localStorage.setItem(taskCurrent, JSON.stringify(listTask))
     if(taskCurrent==='listTaskDone'){ 
       const listTask = pegaTaskStorage('listTaskInprogress')
@@ -112,90 +122,70 @@ const Card: React.FC<CardProps> = ({
     })
     setModalEditTask(!modalEditTask);
   }
+
   return (
     <Container>
       {modalEditTask && (
         <ContentModal>
           <BodyModal>
             <RowCenterBetween>
-              <h1>Editar Tarefa</h1>
-              <button
-                type="button"
-                className="btn-modal3"
-                onClick={() => {
-                  toogleModalEditTask();
-                }}
-              >
-                <FaTimes className="icon-modal-times" />
-              </button>
+              <Title>Editar Tarefa</Title>
+              <ButtonCloseModal onClick={() => {toogleModalEditTask()}}>
+                <FaTimes className="icon" />
+              </ButtonCloseModal>
             </RowCenterBetween>
-            <hr className="hr-modal"/>
-
-            <label>Titulo</label>
-            <input 
-              type="text"
-              className="input-modal"
+            <Line/>
+            <Label>Titulo</Label>
+            <Input 
               value={dataTask.title}
               onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{
                 setDataTask({...dataTask, title: e.target.value})
               }}
             />
-            <label>Descrição</label>
-            <input 
-              type="text"
-              className="input-modal"
+            <Label>Descrição</Label>
+            <Input 
               value={dataTask.description}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setDataTask({ ...dataTask, description: e.target.value });
               }}
             />
-            <hr className="hr-modal"/>
+            <Line />
             <RowCenterRight>
-              <button
-                type="button"
-                className="btn-modal1"
-                onClick={() => {
-                  toogleModalEditTask();
-                }}
-              >
+              <ButtonModal1 onClick={() => {toogleModalEditTask()}}>
                 Cancelar
-              </button>
-              <button type="button" className="btn-modal2 mL20" onClick={editTask}>
+              </ButtonModal1>
+              <ButtonModal2 onClick={editTask}>
                 Salvar
-              </button>
+              </ButtonModal2>
             </RowCenterRight>
           </BodyModal>
         </ContentModal>
       )}
       <RowCenterBetween>
-        <p className="tittle">{title}</p>
+        <Title>{title}</Title>
         <RowCenterRight>
           <ImAttachment className="icon" />
-          <p className="count-attachment">
-            {countAttachment}
-          </p>
+          <TextCountAttachment>{countAttachment}</TextCountAttachment>
         </RowCenterRight>
-        
       </RowCenterBetween>
-      <p className="description" >
-          {description}
-      </p>
-      <hr/>
-      <RowCenterBetween className="mT10">
-        <p className="legend">
-          {legend}
-        </p>
-        <div className="content-btn-options">
-          <button className="btn-options">
-            <BiDotsHorizontal className="icon-options"/>
-          </button>
-          <div className="dropdown-options">
-              <button onClick={toogleModalEditTask}><FaPen className="icon-btn-dropdown"/>Editar</button>
-              {taskCurrent != 'listTaskDone' && <button onClick={nextStage}><FaArrowAltCircleRight className="icon-btn-dropdown"/>Passar Etapa</button>}
-              {taskCurrent != 'listTaskTodo' &&  <button onClick={previousStage}><FaArrowAltCircleLeft className="icon-btn-dropdown"/>Voltar Etapa</button>}
-              <button onClick={deleteTask}><FaTrash className="icon-btn-dropdown"/>Excluir</button>
-          </div>
-        </div>
+      <TextDescription>{description}</TextDescription>
+      <Line/>
+      <RowCenterBetween>
+        <TextLegend>{legend}</TextLegend>
+        <ContentBtnOptions>
+          <BiDotsHorizontal className="BtnOptions"/>
+          <DropdownOptions className="dropdown-options">
+              <ButtonDropdownOptions onClick={toogleModalEditTask}>
+                <>
+                <FaPen className="icon"/>
+                Editar
+                </>
+              </ButtonDropdownOptions>
+              {taskCurrent !== 'listTaskDone' && <ButtonDropdownOptions onClick={nextStage}><FaArrowAltCircleRight className="icon"/>Passar Etapa</ButtonDropdownOptions>}
+              {taskCurrent !== 'listTaskTodo' &&  <ButtonDropdownOptions onClick={previousStage}><FaArrowAltCircleLeft className="icon"/>Voltar Etapa</ButtonDropdownOptions>}
+              <ButtonDropdownOptions onClick={deleteTask}><FaTrash className="icon"/>Excluir</ButtonDropdownOptions>
+          </DropdownOptions>
+        </ContentBtnOptions>
       </RowCenterBetween>
     </Container>
   )

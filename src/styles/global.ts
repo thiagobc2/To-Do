@@ -429,6 +429,7 @@ export const RowTopLeft = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
 `;
+
 export const RowTopRight = styled.div`
   display: flex;
   width:100%;
@@ -436,6 +437,7 @@ export const RowTopRight = styled.div`
   align-items: flex-start;
   justify-content: flex-end;
 `;
+
 export const RowTopCenter = styled.div`
   display: flex;
   width:100%;
@@ -443,6 +445,7 @@ export const RowTopCenter = styled.div`
   align-items: flex-start;
   justify-content: center;
 `;
+
 export const RowTopBetween = styled.div`
   display: flex;
   width:100%;
@@ -450,6 +453,7 @@ export const RowTopBetween = styled.div`
   align-items: flex-start;
   justify-content: space-between;
 `;
+
 export const RowBottomLeft = styled.div`
   display: flex;
   width:100%;
@@ -457,6 +461,7 @@ export const RowBottomLeft = styled.div`
   align-items: flex-end;
   justify-content: flex-start;
 `;
+
 export const RowBottomRight = styled.div`
   display: flex;
   width:100%;
@@ -464,6 +469,7 @@ export const RowBottomRight = styled.div`
   align-items: flex-end;
   justify-content: flex-end;
 `;
+
 export const RowBottomCenter = styled.div`
   display: flex;
   width:100%;
@@ -471,6 +477,7 @@ export const RowBottomCenter = styled.div`
   align-items: flex-end;
   justify-content: center;
 `;
+
 export const RowBottomBetween = styled.div`
   display: flex;
   width:100%;
@@ -492,6 +499,7 @@ export const RowCenterRight = styled.div`
   align-items: center;
   justify-content: flex-end;
 `;
+
 export const RowCenterCenter = styled.div`
   display: flex;
   width:100%;
@@ -499,6 +507,7 @@ export const RowCenterCenter = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 export const RowCenterBetween = styled.div`
   display:flex;
   width:100%;
@@ -516,6 +525,7 @@ export const ColumnLeftTop = styled.div`
   justify-content: flex-start;
   flex-direction: column;
 `;
+
 export const ColumnLeftCenter = styled.div`
   display: flex;
   width:100%;
@@ -524,6 +534,7 @@ export const ColumnLeftCenter = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
+
 export const ColumnLeftBottom = styled.div`
   display: flex;
   width:100%;
@@ -532,6 +543,7 @@ export const ColumnLeftBottom = styled.div`
   justify-content: flex-end;
   flex-direction: column;
 `;
+
 export const ColumnLeftBetween = styled.div`
   display: flex;
   width:100%;
@@ -541,6 +553,7 @@ export const ColumnLeftBetween = styled.div`
   flex-direction: column;
   border: 1px solid #333;
 `;
+
 export const ColumnCenterTop = styled.div`
   display: flex;
   width:100%;
@@ -549,6 +562,7 @@ export const ColumnCenterTop = styled.div`
   justify-content: flex-start;
   flex-direction: column;
 `;
+
 export const ColumnCenterCenter = styled.div`
   display: flex;
   width:100%;
@@ -557,6 +571,7 @@ export const ColumnCenterCenter = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
+
 export const ColumnCenterBottom = styled.div`
   display: flex;
   width:100%;
@@ -573,6 +588,7 @@ export const ColumnCenterBetween = styled.div`
   justify-content: space-between;
   flex-direction: column;
 `;
+
 export const ColumnRightTop = styled.div`
   display: flex;
   width:100%;
@@ -581,6 +597,7 @@ export const ColumnRightTop = styled.div`
   justify-content: flex-start;
   flex-direction: column;
 `;
+
 export const ColumnRightCenter = styled.div`
   display: flex;
   width:100%;
@@ -589,6 +606,7 @@ export const ColumnRightCenter = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
+
 export const ColumnRightBottom = styled.div`
   display: flex;
   width:100%;
@@ -597,6 +615,7 @@ export const ColumnRightBottom = styled.div`
   justify-content: flex-end;
   flex-direction: column;
 `;
+
 export const ColumnRightBetween = styled.div`
   display: flex;
   width:100%;
@@ -617,36 +636,14 @@ z-index: 10;
 background-color: rgba(0,0,0,.9);
 align-items: center;
 justify-content: center;
-
 `;
 
 export const BodyModal = styled.div`
   display:flex;
   width: 50%;
-  padding: 20px;
   height: max-content;
-  background:#fff;
+  padding: 20px;
   border-radius:10px;
   flex-direction: column;
-  
-  h1{
-    color:#444;
-    font-size: 18px;
-    font-weight: bold !important;
-  }
-  
-  .icon{
-    color:#444;
-    font-size:25px;
-  }
-  label{
-    color:#444;
-    margin-bottom:2px;
-    font-size:14px;
-  }
-  input[type="radio"]{
-    width:20px;
-    height:20px;
-    margin: 10px;
-  }
+  background:#fff;
 `;

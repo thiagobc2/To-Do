@@ -4,11 +4,34 @@ export const Container = styled.div`
   display: flex;
   flex:1;
   flex-direction: column;
+`;
 
+export const Line = styled.hr`
+  margin-top: 10px;
+`;
 
-  /* modal */
-  .btn-modal1{ 
-    color: #444;
+export const Label = styled.label`
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+export const Title = styled.h1`
+  color:#444;
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+export const Input = styled.input`
+  color: #999;
+  height: 35px;
+  padding: 0 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  margin-bottom: 10px;
+`;
+
+export const ButtonModal1 = styled.button`
+  color: #444;
     font-size:15px;
     font-weight: bold;
     padding:8px 30px;
@@ -16,46 +39,42 @@ export const Container = styled.div`
     border-radius: 40px;
     background: #d9d9d9;
     cursor: pointer;
+
+  &:hover{
+    background: #e9e9e9;
   }
-  .btn-modal2{ 
-    color: #fff;
-    font-size:15px;
-    font-weight: bold;
-    padding:8px 30px;
-    border: none;
-    border-radius: 40px;
-    background: #3744BD;
-    cursor: pointer;
+`;
+
+export const ButtonModal2 = styled.button`
+  color: #fff;
+  font-size:15px;
+  font-weight: bold;
+  padding:8px 30px;
+  border: none;
+  border-radius: 40px;
+  background: #3744BD;
+  cursor: pointer;
+
+  &:hover{
+    background: #4657F0;
   }
-  .btn-modal3{ 
-    display:flex;
-    color: #444;
-    font-weight: bold;
-    padding:8px;
-    border: none;
-    border-radius: 40px;
-    background:transparent;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-  }
-  .icon-modal-times{
+`;
+
+export const ButtonCloseModal = styled.button`
+  display:flex;
+  color: #444;
+  font-weight: bold;
+  padding:8px;
+  border: none;
+  border-radius: 40px;
+  background:transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+
+  .icon{
     color: #999;
     font-size: 18px;
-  }
-  .btn-modal3:hover{
-    background: #e9e9e9;
-   }
-  .hr-modal{
-    margin: 10px 0;
-  }
-  .input-modal{
-    color: #999;
-    height: 35px;
-    padding: 0 10px;
-    border: 1px solid #d9d9d9;
-    border-radius: 4px;
-    margin-bottom: 10px;
   }
 `;
 
@@ -71,6 +90,7 @@ export const ContentTask = styled.div`
     flex-wrap: wrap;
     align-items: flex-start
   }
+
   ul li{
     display: flex;
     flex: 1;
@@ -80,39 +100,41 @@ export const ContentTask = styled.div`
     justify-content: center;
     flex-direction: column;
   }
-  .content-header{
-    border-bottom: 1px solid #c9c9c9;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-  }
-  .tittle{
-    font-size: 18px;
-    font-weight: bold;
-    white-space: nowrap;
-  }
-  .count-tasks{
-    color: #999;
-    margin-left: 10px;
-    font-size: 16px;
-  }
-  .btn-new-task{
-    display: flex;
-    padding: 5px 15px;
-    font-size: 12px;
-    border: none;
-    border-radius: 30px;
-    background: #D7E0F1;
-    white-space: nowrap;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  .btn-new-task:hover{
-    background: #C5D5F1;
-  }
-  .icon-btn{
+`;
+
+export const TextCountTask = styled.h2`
+  color: #999;
+  margin-left: 10px;
+  font-size: 16px;
+`;
+
+export const ContentHeader = styled.div`
+  display: flex;
+  width:100%;
+  height:max-content;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #c9c9c9;
+  padding-bottom: 10px;
+`;
+
+export const ButtonNewTask = styled.button`
+  display: flex;
+  padding: 5px 15px;
+  font-size: 12px;
+  border: none;
+  border-radius: 30px;
+  background: #D7E0F1;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .icon{
     margin-right: 5px;
   }
-  
 
+  &:hover{
+    background: #C5D5F1;
+  }
 `;

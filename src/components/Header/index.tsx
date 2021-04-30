@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, Title } from './styles';
 
 const Header: React.FC = () => {
   return (
     <Container>
-      <h1>To-Do List</h1>
+      <Title>To-Do List</Title>
     </Container>
   )
 }
